@@ -1,27 +1,27 @@
 const timeline = [
     {
         id: 1,
-        date: "January 2026",
-        title: "Started taking chess seriously"
+        date: "July 2023",
+        title: "Failed my first attempt at 42 Lisbon"
     },
     {
         id: 2,
-        date: "September 2024",
-        title: "First job as Software Developer"
+        date: "July 2024",
+        title: "Ranked the top student in the second piscine attempt at 42 Porto"
     },
     {
         id: 3,
-        date: "August 2023",
-        title: "Graduated from 42 School"
+        date: "October 2024",
+        title: "Started the course at 42 Porto"
     },
     {
         id: 4,
-        date: "September 2021",
-        title: "Started at 42 School"
+        date: "Setember 2025",
+        title: "Dropped out of 42 Porto to focus on self-learning and personal projects"
     },
     {
         id: 5,
-        date: "June 2021",
-        title: "High School Graduation"
+        date: "February 2026",
+        title: "Started the Critical Techworks academy as DevSecOps"
     }
 ];
