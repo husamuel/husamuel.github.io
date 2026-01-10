@@ -36,11 +36,21 @@ document.addEventListener('click', function(e) {
     const targetSection = link.getAttribute('data-section');
     if (!targetSection) return;
 
-    // Atualiza o hash sem recarregar (gera histórico)
-    if (window.location.hash !== `#${targetSection}`) {
-        history.pushState(null, '', `#${targetSection}`);
-    }
+    // Atualiza o path/hash sem recarregar (gera histórico)
+    const newPath = targetSection === 'home' ? '/' : `/#${targetSection}`;
+    history.pushState({section: targetSection}, '', newPath);
     showSection(targetSection);
+});
+
+// Listener para botões voltar/avançar do browser
+window.addEventListener('popstate', function(e) {
+    let section = 'home';
+    if (e.state && e.state.section) {
+        section = e.state.section;
+    } else if (window.location.hash) {
+        section = window.location.hash.replace('#', '');
+    }
+    showSection(section);
 });
 
 // Renderizar Artigos (compatível com id 'artigos' ou 'articles')
@@ -938,8 +948,11 @@ document.addEventListener('DOMContentLoaded', function() {
         renderGenericSection('ideas', typeof ideas !== 'undefined' ? ideas : []);
         renderContact('contact', typeof contact !== 'undefined' ? contact : []);
 
-        // Roteamento inicial: usa hash se existir, senão 'home'
-        const initial = (window.location.hash && window.location.hash.replace('#', '')) || 'home';
+        // Roteamento inicial
+        let initial = 'home';
+        if (window.location.hash) {
+            initial = window.location.hash.replace('#', '');
+        }
         showSection(initial);
 
         // Re-aplicar tema após renderização
