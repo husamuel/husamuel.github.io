@@ -7,7 +7,6 @@ const projects = [
             "Kubernetes",
             "CI/CD",
             "DevSecOps",
-            "HomeLab",
             "ClusterOptimization"
         ]
     }
